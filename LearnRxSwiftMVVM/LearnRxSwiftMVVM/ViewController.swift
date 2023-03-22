@@ -9,6 +9,8 @@ import UIKit
 import RxSwift
 import RxCocoa
 
+// part 1 - https://www.youtube.com/watch?v=dnmQ3X8o6Fs
+
 class ViewController: UIViewController, UIScrollViewDelegate {
     
     private var viewModel = ViewModel()
@@ -18,7 +20,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     lazy var tableView: UITableView = {
         let table = UITableView(frame: self.view.frame, style: .insetGrouped)
         table.translatesAutoresizingMaskIntoConstraints = false
-        table.register(PostTableViewCell.self, forCellReuseIdentifier: PostTableViewCell.identifier)
+        table.register(UserTableViewCell.self, forCellReuseIdentifier: UserTableViewCell.identifier)
         return table
     }()
 
@@ -27,16 +29,16 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         
         self.view.addSubview(tableView)
         
-        viewModel.fetchPosts()
+        viewModel.fetchUsers()
         bindTableView()
         
     }
     
     func bindTableView() {
         tableView.rx.setDelegate(self).disposed(by: disposeBag)
-        viewModel.posts.bind(to: tableView.rx.items(cellIdentifier: PostTableViewCell.identifier, cellType: PostTableViewCell.self)) { row, item, cell in
+        viewModel.users.bind(to: tableView.rx.items(cellIdentifier: UserTableViewCell.identifier, cellType: UserTableViewCell.self)) { row, item, cell in
             cell.textLabel?.text = "\(item.id)"
-            cell.detailTextLabel?.text = item.title
+            cell.detailTextLabel?.text = item.name
         }.disposed(by: disposeBag)
     }
 
@@ -49,20 +51,18 @@ extension ViewController: UITableViewDelegate {
 
 
 class ViewModel {
-    var posts = BehaviorSubject(value: [Post]())
+    var users = BehaviorSubject(value: [User]())
     
-    func fetchPosts() {
-        let url = URL(string: "https://jsonplaceholder.typicode.com/posts")
+    func fetchUsers() {
+        let url = URL(string: "https://jsonplaceholder.typicode.com/users")
         let task = URLSession.shared.dataTask(with: url!) { data, response, error in
             guard let data = data else {
                 return
             }
             
             do {
-                let responseData = try JSONDecoder().decode([Post].self, from: data)
-                self.posts.on(.next(responseData))
-                
-                print("responseData: \(responseData)")
+                let responseData = try JSONDecoder().decode([User].self, from: data)
+                self.users.on(.next(responseData))
                 
             } catch {
                 print(error.localizedDescription)
@@ -73,6 +73,33 @@ class ViewModel {
 }
 
 
+
+
+
+// MARK: - UserElement
+struct User: Codable {
+    let id: Int
+    let name, username, email: String
+    let address: Address
+    let phone, website: String
+    let company: Company
+}
+
+// MARK: - Address
+struct Address: Codable {
+    let street, suite, city, zipcode: String
+    let geo: Geo
+}
+
+// MARK: - Geo
+struct Geo: Codable {
+    let lat, lng: String
+}
+
+// MARK: - Company
+struct Company: Codable {
+    let name, catchPhrase, bs: String
+}
 
 
 // MARK: - Post

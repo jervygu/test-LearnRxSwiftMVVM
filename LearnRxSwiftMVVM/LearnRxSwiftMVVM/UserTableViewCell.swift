@@ -7,12 +7,12 @@
 
 import UIKit
 
-class PostTableViewCell: UITableViewCell {
+class UserTableViewCell: UITableViewCell {
     
-    static let identifier = "PostTableViewCell"
+    static let identifier = "UserTableViewCell"
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: .value1, reuseIdentifier: PostTableViewCell.identifier)
+        super.init(style: .value1, reuseIdentifier: UserTableViewCell.identifier)
     }
     
     required init?(coder: NSCoder) {
