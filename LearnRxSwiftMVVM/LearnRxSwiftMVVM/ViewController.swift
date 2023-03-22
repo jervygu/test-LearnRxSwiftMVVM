@@ -8,8 +8,10 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import RxDataSources
 
 // part 1 - https://www.youtube.com/watch?v=dnmQ3X8o6Fs
+// part 4 - https://www.youtube.com/watch?v=IbRM3t5QUxk
 
 class ViewController: UIViewController, UIScrollViewDelegate {
     
@@ -65,9 +67,54 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     func bindTableView() {
         tableView.rx.setDelegate(self).disposed(by: disposeBag)
         
-        viewModel.users.bind(to: tableView.rx.items(cellIdentifier: UserTableViewCell.identifier, cellType: UserTableViewCell.self)) { row, item, cell in
+        // old binding
+//        viewModel.users.bind(to: tableView.rx.items(cellIdentifier: UserTableViewCell.identifier, cellType: UserTableViewCell.self)) { row, item, cell in
+//            cell.textLabel?.text = "\(item.id)"
+//            cell.detailTextLabel?.text = item.name
+//        }.disposed(by: disposeBag)
+//
+//        tableView.rx.itemSelected.subscribe { indexPath in
+//            let alert = UIAlertController(title: "Note", message: "Edit User", preferredStyle: .alert)
+//            alert.addTextField { textField in
+//
+//            }
+//            alert.addAction(UIAlertAction(title: "Save", style: .default, handler: { action in
+//                let textField = (alert.textFields?[0])! as UITextField
+//                print(textField.text)
+//
+//                self.viewModel.updateUser(index: indexPath.row, name: textField.text ?? "-")
+//
+//
+//            }))
+//
+//            DispatchQueue.main.async {
+//                self.present(alert, animated: true)
+//            }
+//
+//        }.disposed(by: disposeBag)
+//
+//        tableView.rx.itemDeleted.subscribe { [weak self] indexPath in
+//            guard let self = self else { return }
+//            self.viewModel.deleteUser(index: indexPath.row)
+//        }.disposed(by: disposeBag)
+        
+        
+        let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, User>> { _, tableView, indexPath, item in
+            let cell = tableView.dequeueReusableCell(withIdentifier: UserTableViewCell.identifier, for: indexPath) as! UserTableViewCell
+            
             cell.textLabel?.text = "\(item.id)"
             cell.detailTextLabel?.text = item.name
+            
+            return cell
+        } titleForHeaderInSection: { dataSource, sectionIndex in
+            return dataSource[sectionIndex].model
+        }
+
+        self.viewModel.users.bind(to: self.tableView.rx.items(dataSource: dataSource)).disposed(by: disposeBag)
+        
+        tableView.rx.itemDeleted.subscribe { [weak self] indexPath in
+            guard let self = self else { return }
+            self.viewModel.deleteUser(indexPath: indexPath)
         }.disposed(by: disposeBag)
         
         tableView.rx.itemSelected.subscribe { indexPath in
@@ -77,24 +124,13 @@ class ViewController: UIViewController, UIScrollViewDelegate {
             }
             alert.addAction(UIAlertAction(title: "Save", style: .default, handler: { action in
                 let textField = (alert.textFields?[0])! as UITextField
-                print(textField.text)
-                
-                self.viewModel.updateUser(index: indexPath.row, name: textField.text ?? "-")
-                
-                
+                self.viewModel.updateUser(indexPath: indexPath, name: textField.text ?? "-")
             }))
-            
             DispatchQueue.main.async {
                 self.present(alert, animated: true)
             }
             
         }.disposed(by: disposeBag)
-        
-        tableView.rx.itemDeleted.subscribe { [weak self] indexPath in
-            guard let self = self else { return }
-            self.viewModel.deleteUser(index: indexPath.row)
-        }.disposed(by: disposeBag)
-        
         
         
 
@@ -109,7 +145,8 @@ extension ViewController: UITableViewDelegate {
 
 
 class ViewModel {
-    var users = BehaviorSubject(value: [User]())
+//    var users = BehaviorSubject(value: [User]())
+    var users = BehaviorSubject(value: [SectionModel(model: "", items: [User]())])
     
     func fetchUsers() {
         let url = URL(string: "https://jsonplaceholder.typicode.com/users")
@@ -120,7 +157,11 @@ class ViewModel {
             
             do {
                 let responseData = try JSONDecoder().decode([User].self, from: data)
-                self.users.on(.next(responseData))
+//                self.users.on(.next(responseData))
+                let sectionUser = SectionModel(model: "First", items: [User(id: 0, name: "Jervy")])
+                
+                let secondSection = SectionModel(model: "Second", items: responseData)
+                self.users.on(.next([sectionUser, secondSection]))
                 
             } catch {
                 print(error.localizedDescription)
@@ -130,25 +171,51 @@ class ViewModel {
     }
     
     func addUser(user: User) {
-        guard var users = try? users.value() else { return }
+//        guard var users = try? users.value() else { return }
+        guard var sections = try? users.value() else { return }
         
-        users.insert(user, at: users.count)
-        self.users.on(.next(users))
+        var currentSection = sections[0]
+        currentSection.items.append(user)
+        
+        sections[0] = currentSection
+        self.users.onNext(sections)
+        
+//        users.insert(user, at: users.count)
+//        self.users.on(.next(users))
         
     }
     
     func updateUser(index: Int, name: String) {
         guard var users = try? users.value() else { return }
         
-        users[index].name = name
-        self.users.on(.next(users))
+//        users[index].name = name
+//        self.users.on(.next(users))
+    }
+    
+    func updateUser(indexPath: IndexPath, name: String) {
+        guard var sections = try? users.value() else { return }
+        
+        var currentSection = sections[indexPath.section]
+        currentSection.items[indexPath.row].name = name
+        sections[indexPath.section] = currentSection
+        self.users.onNext(sections)
     }
     
     func deleteUser(index: Int) {
         guard var users = try? users.value() else { return }
         
-        users.remove(at: index)
-        self.users.on(.next(users))
+//        users.remove(at: index)
+//        self.users.on(.next(users))
+        
+    }
+    
+    func deleteUser(indexPath: IndexPath) {
+        guard var sections = try? users.value() else { return }
+        
+        var currentSection = sections[indexPath.section]
+        currentSection.items.remove(at: indexPath.row)
+        sections[indexPath.section] = currentSection
+        self.users.onNext(sections)
         
     }
     
