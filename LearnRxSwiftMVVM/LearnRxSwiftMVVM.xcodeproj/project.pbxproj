@@ -3,19 +3,23 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		110D936B29CAF70E002655B2 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110D936A29CAF70E002655B2 /* PostTableViewCell.swift */; };
 		117A398929CAF2580090E53B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117A398829CAF2580090E53B /* AppDelegate.swift */; };
 		117A398B29CAF2580090E53B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117A398A29CAF2580090E53B /* SceneDelegate.swift */; };
 		117A398D29CAF2580090E53B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117A398C29CAF2580090E53B /* ViewController.swift */; };
 		117A399029CAF2580090E53B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 117A398E29CAF2580090E53B /* Main.storyboard */; };
 		117A399229CAF25D0090E53B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 117A399129CAF25D0090E53B /* Assets.xcassets */; };
 		117A399529CAF25D0090E53B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 117A399329CAF25D0090E53B /* LaunchScreen.storyboard */; };
+		C492090D899C9DE500BB3536 /* Pods_LearnRxSwiftMVVM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 576B12A7130F6A636413636C /* Pods_LearnRxSwiftMVVM.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0B9EFC900DFCDDF09FF7F82B /* Pods-LearnRxSwiftMVVM.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LearnRxSwiftMVVM.release.xcconfig"; path = "Target Support Files/Pods-LearnRxSwiftMVVM/Pods-LearnRxSwiftMVVM.release.xcconfig"; sourceTree = "<group>"; };
+		110D936A29CAF70E002655B2 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		117A398529CAF2580090E53B /* LearnRxSwiftMVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LearnRxSwiftMVVM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		117A398829CAF2580090E53B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		117A398A29CAF2580090E53B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +28,8 @@
 		117A399129CAF25D0090E53B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		117A399429CAF25D0090E53B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		117A399629CAF25D0090E53B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		576B12A7130F6A636413636C /* Pods_LearnRxSwiftMVVM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LearnRxSwiftMVVM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		69014B8AD1199FAA39AB112C /* Pods-LearnRxSwiftMVVM.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LearnRxSwiftMVVM.debug.xcconfig"; path = "Target Support Files/Pods-LearnRxSwiftMVVM/Pods-LearnRxSwiftMVVM.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C492090D899C9DE500BB3536 /* Pods_LearnRxSwiftMVVM.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +49,8 @@
 			children = (
 				117A398729CAF2580090E53B /* LearnRxSwiftMVVM */,
 				117A398629CAF2580090E53B /* Products */,
+				A9D50C8ACBB50253F5CC74C6 /* Pods */,
+				C075C8E0187702816160764C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -59,12 +68,30 @@
 				117A398829CAF2580090E53B /* AppDelegate.swift */,
 				117A398A29CAF2580090E53B /* SceneDelegate.swift */,
 				117A398C29CAF2580090E53B /* ViewController.swift */,
+				110D936A29CAF70E002655B2 /* PostTableViewCell.swift */,
 				117A398E29CAF2580090E53B /* Main.storyboard */,
 				117A399129CAF25D0090E53B /* Assets.xcassets */,
 				117A399329CAF25D0090E53B /* LaunchScreen.storyboard */,
 				117A399629CAF25D0090E53B /* Info.plist */,
 			);
 			path = LearnRxSwiftMVVM;
+			sourceTree = "<group>";
+		};
+		A9D50C8ACBB50253F5CC74C6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				69014B8AD1199FAA39AB112C /* Pods-LearnRxSwiftMVVM.debug.xcconfig */,
+				0B9EFC900DFCDDF09FF7F82B /* Pods-LearnRxSwiftMVVM.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		C075C8E0187702816160764C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				576B12A7130F6A636413636C /* Pods_LearnRxSwiftMVVM.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +101,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 117A399929CAF25D0090E53B /* Build configuration list for PBXNativeTarget "LearnRxSwiftMVVM" */;
 			buildPhases = (
+				E43F1D09DBB5161CF23644A6 /* [CP] Check Pods Manifest.lock */,
 				117A398129CAF2580090E53B /* Sources */,
 				117A398229CAF2580090E53B /* Frameworks */,
 				117A398329CAF2580090E53B /* Resources */,
+				B85F691BED6086CE5E1A966E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -103,7 +132,7 @@
 				};
 			};
 			buildConfigurationList = 117A398029CAF2580090E53B /* Build configuration list for PBXProject "LearnRxSwiftMVVM" */;
-			compatibilityVersion = "Xcode 14.0";
+			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -133,6 +162,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		B85F691BED6086CE5E1A966E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LearnRxSwiftMVVM/Pods-LearnRxSwiftMVVM-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LearnRxSwiftMVVM/Pods-LearnRxSwiftMVVM-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LearnRxSwiftMVVM/Pods-LearnRxSwiftMVVM-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E43F1D09DBB5161CF23644A6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LearnRxSwiftMVVM-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		117A398129CAF2580090E53B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -141,6 +212,7 @@
 				117A398D29CAF2580090E53B /* ViewController.swift in Sources */,
 				117A398929CAF2580090E53B /* AppDelegate.swift in Sources */,
 				117A398B29CAF2580090E53B /* SceneDelegate.swift in Sources */,
+				110D936B29CAF70E002655B2 /* PostTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,6 +354,7 @@
 		};
 		117A399A29CAF25D0090E53B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 69014B8AD1199FAA39AB112C /* Pods-LearnRxSwiftMVVM.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -294,6 +367,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -309,6 +383,7 @@
 		};
 		117A399B29CAF25D0090E53B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0B9EFC900DFCDDF09FF7F82B /* Pods-LearnRxSwiftMVVM.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -321,6 +396,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
