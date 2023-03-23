@@ -23,7 +23,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let nav = UINavigationController()
         
-        let vc = ViewController(nibName: nil, bundle: nil)
+//        let vc = ViewController(nibName: nil, bundle: nil)
+        let vc = LoginViewController(nibName: nil, bundle: nil)
         
         nav.viewControllers = [vc]
         window.rootViewController = nav

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		110D936B29CAF70E002655B2 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110D936A29CAF70E002655B2 /* UserTableViewCell.swift */; };
+		1152479029CBEF73006FA03D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1152478F29CBEF73006FA03D /* LoginViewController.swift */; };
 		117A398929CAF2580090E53B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117A398829CAF2580090E53B /* AppDelegate.swift */; };
 		117A398B29CAF2580090E53B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117A398A29CAF2580090E53B /* SceneDelegate.swift */; };
 		117A398D29CAF2580090E53B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117A398C29CAF2580090E53B /* ViewController.swift */; };
@@ -20,6 +21,7 @@
 /* Begin PBXFileReference section */
 		0B9EFC900DFCDDF09FF7F82B /* Pods-LearnRxSwiftMVVM.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LearnRxSwiftMVVM.release.xcconfig"; path = "Target Support Files/Pods-LearnRxSwiftMVVM/Pods-LearnRxSwiftMVVM.release.xcconfig"; sourceTree = "<group>"; };
 		110D936A29CAF70E002655B2 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
+		1152478F29CBEF73006FA03D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		117A398529CAF2580090E53B /* LearnRxSwiftMVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LearnRxSwiftMVVM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		117A398829CAF2580090E53B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		117A398A29CAF2580090E53B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 				117A399129CAF25D0090E53B /* Assets.xcassets */,
 				117A399329CAF25D0090E53B /* LaunchScreen.storyboard */,
 				117A399629CAF25D0090E53B /* Info.plist */,
+				1152478F29CBEF73006FA03D /* LoginViewController.swift */,
 			);
 			path = LearnRxSwiftMVVM;
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 				117A398D29CAF2580090E53B /* ViewController.swift in Sources */,
 				117A398929CAF2580090E53B /* AppDelegate.swift in Sources */,
 				117A398B29CAF2580090E53B /* SceneDelegate.swift in Sources */,
+				1152479029CBEF73006FA03D /* LoginViewController.swift in Sources */,
 				110D936B29CAF70E002655B2 /* UserTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
